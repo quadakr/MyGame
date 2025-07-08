@@ -1,123 +1,266 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | DriftGame</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
-        </div>
-      </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">DriftGame</div>
-      </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quadakr's Games</title>
+<style>
+
+  * {
+    margin: 15px;
+  }
+
+  body {
+    margin: 0;
+    background-color: rgb(212, 235, 255);
+    align-items: start;
+    height: 200vh;
+    justify-content: center;
+    align-content: start;
+  }
+
+  h1:hover {
+    background-color: #33ff00;
+    padding: 12px 24px;
+    border-radius: 10px;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  h1 {
+    background-color: #90ff75;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  h2.intro {
+    border-left: rgba(140, 140, 255, 0.952) 5px solid;
+    align-self: flex-start;
+    margin: 50px;
+  }
+
+  h3 {
+    background-color: #90ff75;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0px;
+  }
+
+  .gamedescription:hover {
+    background-color: #88c6ff;
+    padding: 12px 24px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 93%;
+    transition: all 0.3s ease;
+  }
+
+  .gamedescription {
+    background-color: #b3daff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 90%;
+    transition: all 0.3s ease;
+  }
+
+  .comments:hover {
+    background-color: #88c6ff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 90%;
+    height: 1200px;
+    transition: all 0.3s ease;
+  }
+
+  .comments {
+    background-color: #b3daff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 90%;
+    height: 1200px;
+    transition: all 0.3s ease;
+  }
+
+  #cusdis {
+    width: 90%;
+    height: 80%;
+    max-height: 1200px;
+    margin: 30px auto;
+    border: 2px solid #90ff75;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  #cusdis iframe,
+  #cusdis > div {
+    width: 100% !important;
+    max-width: 200% !important;
+    height: 70% !important;
+    max-height: 80% !important;
+    box-sizing: border-box;
+  }
+
+  #commref:hover {
+    background-color: #83ff1e;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 120px;
+    transition: all 0.3s ease;
+  }
+
+  #commref {
+    background-color: #b8ff7e;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 120px;
+    transition: all 0.3s ease;
+  }
+
+  #links:hover {
+    background-color: #88c6ff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 90%;
+    transition: all 0.3s ease;
+    display: flex;
+    text-decoration: none;
+  }
+
+  #links {
+    background-color: #b3daff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 90%;
+    transition: all 0.3s ease;
+    display: flex;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #0058aa;
+    align-self: flex-end;
+    transition: all 0.3s ease;
+  }
+
+  a {
+    text-decoration: none;
+    color: #006dd3;
+    align-self: flex-end;
+    transition: all 0.3s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .commlink {
+    background-color: #b3daff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: inline-block;
+    width: 90%;
+    transition: all 0.3s ease;
+    display: flex;
+  }
+
+</style>
+</head>
+<body>
+
+  <div>
+    <h2 class="intro">
+      Здесь вы можете найти мои игры, пока-что многие из них на стадии разработки, но я планирую развивать проекты
+    </h2>
+    <a class="commlink" href="#comments">Комментировать</a>
+  </div>
+
+  <div class="gamedescription">
+    <h2>"DriftGame"</h2>
+    <p>Моя первая игра, имеет множество режимов, но разработка перенесена в другой проект (Multiverse Playgrounds) в целях оптимизации, сама же игра готова на 100%</p>
+    <a target="_blank" href="https://drive.google.com/drive/folders/1MnGe0g_L1H7KbADxhJN7uNpkHXbcKBaF" download>
+      <h1>Скачать</h1>
+    </a>
+  </div>
+
+  <div class="gamedescription">
+    <h2>"Multiverse Playgrounds"</h2>
+    <p>Оптимизированная и улучшенная версия DriftGame, игра готова примерно на 20%</p>
+    <a target="_blank" href="https://drive.google.com/drive/folders/1noepdK8bFX6gkhhkwQgXqasQ7Yrpnfb3" download>
+      <h1>Скачать</h1>
+    </a>
+  </div>
+
+  <div class="gamedescription">
+    <h2>"Mygame"</h2>
+    <p>Экспериментальная игра, пока что готова примерно на 2%)))</p>
+    <a target="_blank" href="https://drive.google.com/drive/folders/1kphNpecRRy1MeT7P-IV9egI4xAE3xxWi" download>
+      <h1>Скачать</h1>
+    </a>
+  </div>
+
+  <div class="gamedescription">
+    <h2>"GD3D"</h2>
+    <p>3D-пародия на geometry dash, готова но будет обновляться и оптимизироваться, доступна на android</p>
+    <a target="_blank" href="https://drive.google.com/drive/folders/16tRO8Nj2hMpYVXSZH-bK_OLjBQPkZQht" download>
+      <h1>Скачать</h1>
+    </a>
+  </div>
+
+  <div id="links">
+    <h2>Мои соцсети:</h2>
+    <div class="youtube">
+      <a target="_blank" href="https://www.youtube.com/channel/UCy257wX6Dp_yewnN_8YewEA">
+         <h3>Мой ютуб (видео выходят редко)</h3>
+      </a>
     </div>
-    <script>
+    <div id="telegram">
+      <a target="_blank" href="https://t.me/quadakrr">
+         <h3>Мой тгк</h3>
+      </a>
+    </div>
+  </div>
 
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
+  <div class="comments" id="comments">
+    <h2>Комментарии: (Beta)</h2>
+    <button id="commref" onclick="refreshIframe()">Обновить</button>
 
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
+    <div id="cusdis"
+      data-host="https://cusdis.com"
+      data-app-id="30b10264-aaec-45ae-9558-c7107f135ad0"
+      data-page-id="quadakr.glitch.me"
+      data-page-url="https://yourwebsite.com"
+      data-page-title="Отзывы">
+    </div>
+  </div>
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/1.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/1.data.gz",
-        frameworkUrl: buildUrl + "/1.framework.js.gz",
-        codeUrl: buildUrl + "/1.wasm.gz",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Drift Game inc",
-        productName: "DriftGame",
-        productVersion: "1.5.4",
-        showBanner: unityShowBanner,
-      };
+  <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 
-      // By default Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
+  <script>
+    function refreshIframe(){
+      location.reload();
+      document.getElementById("comments").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
+  <script>
+    var script = document.createElement('script');
+    script.defer = true;
+    script.dataset.domain = "quadakr.glitch.me";
+    script.dataset.api = "https://plausible.io/api/event";
+    script.src = "https://plausible.io/js/script.outbound-links.tagged-events.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+  </script>
 
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      canvas.style.background = "url('" + buildUrl + "/1.jpg.gz') center / cover";
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-  </body>
+</body>
 </html>
